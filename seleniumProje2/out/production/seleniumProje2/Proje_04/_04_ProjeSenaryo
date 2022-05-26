@@ -1,0 +1,33 @@
+
+1. http://dhtmlgoodies.com/scripts/drag-drop-nodes/drag-drop-nodes.html
+    buradaki bütün öğrencileri bütün kutucukları doldurana kadar atınız.
+
+2. Her Kutucukta kendi size kadar ögrenci sayisinin oldugunu dogrulayiniz
+
+3, Team A : 4
+   Team B : 4
+   Team C : 4
+   Team D : 3
+   Team E : 6
+
+
+   List<WebElement> students= driver.findElements(By.cssSelector("div#dhtmlgoodies_listOfItems li[id^=node]"));
+           List <WebElement> box1= driver.findElements(By.xpath("//div[@id='dhtmlgoodies_mainContainer']/div[1]/ul/li"));
+           List <WebElement> box2=  driver.findElements(By.cssSelector("div#dhtmlgoodies_mainContainer ul[id^='box']"));
+           List <WebElement> box3=  driver.findElements(By.cssSelector("div#dhtmlgoodies_mainContainer ul[id^='box']"));
+           List <WebElement> box4=  driver.findElements(By.cssSelector("div#dhtmlgoodies_mainContainer ul[id^='box']"));
+           List <WebElement> box5=  driver.findElements(By.cssSelector("div#dhtmlgoodies_mainContainer ul[id^='box']"));
+           Actions builder= new Actions(driver);
+           Action action;
+
+
+           Thread.sleep(2000);
+           for (int i = 0; i <students.size(); i++) {
+               for (int j = 0; j <box1.size() ; j++) {
+
+                   action = builder.dragAndDrop(students.get(i),box1.get(j)).build();
+                   action.perform();
+
+               }
+           }
+
